@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1" /><link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <title>Analogue Clock</title>
+      <style>
+      *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box ;
+    font-family:"Quicksand";
+}
+body {
+    display:flex;
+    min-height:100vh;
+    align-items:center;
+    justify-content:center;
+    background:#102626;
+}
+.container{
+    width:300px;
+    height:300px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:2;
+}
+.container h1{
+    position:absolute ;
+    top:5%;
+    color:#fff;
+}
+#hour{
+    position:absolute ;
+    height:60px;
+    width:10px;
+    background:#ff0066;
+    box-shadow:0 -50px 0px 0px #ff0066;
+    transform-origin:center ;
+    border-radius:10px;
+}
+#min{
+    position:absolute ;
+    height:80px;
+    width:10px;
+    background:#00bb99;
+    transform-origin:center ;
+    border-radius:10px;
+    box-shadow:0 -70px 0px 0px #00bb99;
+}
+#sec{
+    position:absolute ;
+    height:90px;
+    width:10px;
+    background:#00adff;
+    transform-origin:center;
+    border-radius:10px;
+    box-shadow:0 80px 0px 0px #00adff;
+}
+.qw{
+    position:absolute ;
+    height:25px;
+    width:25px;
+    border-radius:50%;
+    background:#fff;
+}
+
+
+.loader{
+    position:absolute ;
+    width:200px;
+    height:200px;
+    transform:rotate(-15deg);
+    z-index:1;
+}
+
+.loader span{
+    position:absolute   ;
+    top:0;
+    left:0;   
+    width:100%;
+    height:100%; transform:rotate(calc(30deg*var(--i)));
+}
+.loader span::before{
+    content:"";
+    top:0;
+    left:0;
+    width:30px;
+    height:30px;
+    background:#fff;
+    border-radius:50%;  
+    display:flex;
+    align-items:center;
+    justify-content:center;   
+}
+#follow{
+    position:absolute ;
+    top:40%;
+    left:0;
+}
+#follow h2{
+    height:45px;
+    width:45px;
+    background:rgba(0,0,0,.8);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;   
+}
+a{
+    text-decoration:none ;
+    color:#fff;
+}
+footer{
+    position:absolute ;
+    width:100%;
+    height:50px;
+    bottom:10%;    
+    text-align:center ;
+}
+#follow h2 img{
+    height:35px;
+    width:35px;
+}</style>
+    </head>
+    <body>
+<div class="container">
+ <h1>Analogue Clock</h1>
+    <div id="hour"></div>
+    <div id="min"></div>
+    <div id="sec"></div>
+    <div class="qw"></div>
+</div>   
+ <div class="loader">
+   <span style="--i:1;"></span>
+   <span style="--i:2;"></span>
+   <span style="--i:3;"></span>
+   <span style="--i:4;"></span>
+   <span style="--i:5;"></span>
+   <span style="--i:6;"></span>
+   <span style="--i:7;"></span>
+   <span style="--i:8;"></span>
+   <span style="--i:9;"></span>
+   <span style="--i:10;"></span>
+   <span style="--i:11;"></span>
+   <span style="--i:12;"></span>
+        </div> 
+<div id="follow" >
+<h2><a href="https://www.facebook.com/aziz.sobirov.1865"> 
+<i class="fa fa-facebook"></i></a></h2>
+<h2><a href="https://t.me/AzizSobirov">
+<i class="fa fa-telegram"></i></a></h2>
+<h2><a href="https://www.sololearn.com/Profile/17554249/?ref=app"> <i>
+<img id="img" src="https://i.ibb.co/Jcz3Ww7/1-QNim-SWs-BQxta-xt3-Xks-Qaw.png">
+</i></a>    
+</h2>
+</div>       
+<footer>
+ <a href="https://t.me/share/url?url=https://code.sololearn.com/WL3MV7N32Nne/?ref=app">
+ <h1>Share
+<i class="fa fa-share"></i></h1></a>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9">
+        </script>
+           <script>
+     Swal.fire({
+icon: 'success',
+title: 'Welcome !',
+text: 'To my Web! If you like this web please upvote and write comment.',
+footer: ' Aziz Sobirov'
+});  </script> 
+<script>
+    var hour = 
+document.getElementById("hour");
+var min = 
+document.getElementById("min");
+var sec = 
+document.getElementById("sec");
+var img =
+document.getElementById("img");  
+setInterval(() => {
+    d = new Date();
+    hourt = d.getHours();
+    mint = d.getMinutes();
+    sect = d.getSeconds();
+   hourrotate = 30*hourt + mint/2;
+   minrotate = 6*mint + sect/10;
+   secrotate = 6*sect;
+
+    hour.style.transform ="rotate"+"("+ hourrotate + "deg"+")";
+    min.style.transform ="rotate"+"("+ minrotate + "deg"+")";
+    sec.style.transform ="rotate"+"("+ secrotate + "deg"+")";
+    img.style.transform ="rotate"+"("+ secrotate + "deg"+")";
+})
+</script>              
+    </body>
+</html>   
